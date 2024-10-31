@@ -72,9 +72,17 @@ function animate() {
   earthMesh.rotation.y += 0.002;
   lightsMesh.rotation.y += 0.002;
   cloudsMesh.rotation.y += 0.0023;
+  glowMesh.rotation.y += 0.002;
   stars.rotation.y -= 0.0002;
 
   renderer.render(scene, camera);
 }
 
 animate();
+
+function handleWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener("resize", handleWindowResize, false);
